@@ -1,0 +1,14 @@
+[Unit]
+Description=Twitch Auto Recorder
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/ttv_stream_rec
+ExecStart=/opt/ttv_stream_rec/.venv/bin/python /opt/ttv_stream_rec/main.py target_username
+EnvironmentFile=/opt/ttv_stream_rec/.env
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
